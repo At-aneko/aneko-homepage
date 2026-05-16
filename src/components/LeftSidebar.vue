@@ -36,27 +36,27 @@
         <li>
           <div class="focus"></div>
           <div>敬请期待...</div>
+          <div>2026.6</div>
+        </li>
+          <li>
+          <div class="focus"></div>
+          <div>Vue重构主页</div>
           <div>2026.5</div>
         </li>
         <li>
           <div class="focus"></div>
-          <div>全面更新博客</div>
+          <div>更新博客</div>
           <div>2026.5</div>
-        </li>
         <li>
           <div class="focus"></div>
-          <div>ICP备案没过TT</div>
-          <div>2025.12</div>
+          <div>...</div>
+          <div>...</div>
+        </li>
         </li>
         <li>
           <div class="focus"></div>
           <div>注册域名<br/>atbspb.online</div>
           <div>2025.9</div>
-        </li>
-        <li>
-          <div class="focus"></div>
-          <div>...</div>
-          <div>...</div>
         </li>
         <li>
           <div class="focus"></div>
