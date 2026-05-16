@@ -1,6 +1,6 @@
 <template>
-  <div id="zyyo-loading" ref="loadingRef">
-    <div id="zyyo-loading-center"></div>
+  <div id="at-loading" ref="loadingRef">
+    <div id="at-loading-center"></div>
   </div>
 </template>
 

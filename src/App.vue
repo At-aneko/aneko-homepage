@@ -1,15 +1,15 @@
 <template>
   <div>
     <LoadingScreen />
-    <div class="zyyo-filter"></div>
-    <div class="zyyo-main">
+    <div class="at-filter"></div>
+    <div class="at-main">
       <LeftSidebar />
-      <div class="zyyo-right">
+      <div class="at-right">
         <PageHeader :theme="theme" @toggle-theme="toggleTheme" />
         <PageContent />
-        <PageFooter />
       </div>
     </div>
+    <PageFooter />
     <PopupModal />
   </div>
 </template>

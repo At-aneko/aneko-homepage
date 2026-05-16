@@ -1,5 +1,5 @@
 <template>
-  <div class="zyyo-left">
+  <div class="at-left">
     <div class="logo" :style="{ backgroundImage: `url(/static/img/logo.jpg)` }">
       <img
         style="position: absolute; top: -15%; left: -10%; width: 120%; aspect-ratio: 1/1;"

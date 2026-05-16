@@ -20,7 +20,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
+  -webkit-transition: background-color 0.2s ease;
   transition: background-color 0.2s ease;
 }
 
@@ -52,38 +56,39 @@ a:focus {
 
 /* ====== 主题: Light (默认) ====== */
 :root {
-  --main_bg_color: linear-gradient(50deg, #a2d1ff, #ffffff);
-  --main_text_color: #000000;
+  --main_bg_color: url(/static/img/bz-light.jpg);
+  --main_text_color: #1a1a1a;
   --gradient: linear-gradient(120deg, #bd34fe, #e0321b 30%, #41d1ff 60%);
   --purple_text_color: #747bff;
-  --text_bg_color: rgb(196 217 251);
-  --item_bg_color: rgba(249, 250, 251, 0.5);
-  --item_hover_color: rgba(244, 245, 246, 0.8);
-  --item_left_title_color: #000000;
-  --item_left_text_color: #494949;
-  --footer_text_color: #222222;
-  --left_tag_item: linear-gradient(50deg, #a2d1ff, #ffffff);
+  --text_bg_color: rgba(180, 200, 230, 0.5);
+  --item_bg_color: rgba(235, 240, 250, 0.25);
+  --item_hover_color: rgba(225, 235, 250, 0.4);
+  --item_left_title_color: #1a1a1a;
+  --item_left_text_color: #3a3a3a;
+  --footer_text_color: #444444;
+  --left_tag_item: rgba(235, 240, 250, 0.35);
   --card_filter: 0px;
-  --back_filter: 0px;
-  --back_filter_color: #00000000;
-  --fill: #000000;
+  --back_filter: 20px;
+  --back_filter_color: rgba(0, 0, 0, 0.15);
+  --fill: #1a1a1a;
 }
 
 /* ====== Dark 主题 ====== */
 [data-theme="Dark"] {
+  --main_bg_color: url(/static/img/bz-dark.jpg);
   --main_text_color: #fff;
   --gradient: linear-gradient(120deg, rgb(133, 62, 255), #f76cc6 30%, rgb(255, 255, 255) 60%);
   --purple_text_color: #747bff;
-  --text_bg_color: rgb(26, 4, 48);
-  --item_bg_color: rgb(19, 20, 24);
-  --item_hover_color: rgb(19, 23, 27);
+  --text_bg_color: rgba(26, 4, 48, 0.5);
+  --item_bg_color: rgba(19, 20, 24, 0.35);
+  --item_hover_color: rgba(19, 23, 27, 0.55);
   --item_left_title_color: rgb(255, 255, 255);
   --item_left_text_color: rgb(142, 142, 142);
   --footer_text_color: #646464;
-  --left_tag_item: linear-gradient(50deg, #1f2327, #000000);
+  --left_tag_item: rgba(19, 20, 24, 0.35);
   --card_filter: 0px;
-  --back_filter: 0px;
-  --back_filter_color: #000000;
+  --back_filter: 20px;
+  --back_filter_color: rgba(0, 0, 0, 0.2);
   --fill: #ffffff;
 }
 
@@ -102,7 +107,7 @@ body {
   color: var(--main_text_color);
 }
 
-#zyyo-loading {
+#at-loading {
   background: radial-gradient(white, #d8eaff);
   background-size: 100%;
   background-position: center;
@@ -119,7 +124,7 @@ body {
   align-items: center;
 }
 
-#zyyo-loading-center {
+#at-loading-center {
   height: 150px;
   width: 150px;
   position: relative;
@@ -142,7 +147,7 @@ body {
   }
 }
 
-.zyyo-filter {
+.at-filter {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -152,17 +157,16 @@ body {
   z-index: -99999999;
 }
 
-.zyyo-main {
+.at-main {
   width: 100%;
   margin: 0 auto;
   transition: transform 0.5s ease;
-  max-width: 1150px;
   position: relative;
   display: flex;
   flex-direction: row;
 }
 
-.zyyo-left {
+.at-left {
   overflow-y: scroll;
   width: 230px;
   height: 100vh;
@@ -175,7 +179,7 @@ body {
   flex-direction: column;
 }
 
-.zyyo-left::-webkit-scrollbar {
+.at-left::-webkit-scrollbar {
   display: none;
 }
 
@@ -282,14 +286,15 @@ body {
   display: none;
 }
 
-.zyyo-right {
+.at-right {
   width: calc(100% - 230px);
   display: flex;
   padding: 20px;
   position: relative;
-  padding-bottom: 50px;
+  padding-bottom: 70px;
   flex-direction: column;
   overflow-x: hidden;
+  overflow-y: visible;
 }
 
 .welcome {
@@ -317,6 +322,7 @@ body {
 
 .gradientText {
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 200%;
   background-position: 0%;
@@ -477,6 +483,7 @@ body {
   width: calc(25% - 15px);
   backdrop-filter: blur(var(--card_filter));
   -webkit-backdrop-filter: blur(var(--card_filter));
+  -webkit-transition: opacity 0.5s ease, background-color 0.2s ease, border 0.2s ease, transform 0.3s ease;
   transition: opacity 0.5s ease, background-color 0.2s ease, border 0.2s ease, transform 0.3s ease;
 }
 
@@ -557,17 +564,20 @@ body {
 }
 
 footer {
-  position: absolute;
-  padding: 10px;
+  position: fixed;
+  padding: 12px;
   text-align: center;
-  width: calc(100% + 40px);
-  left: -20px;
+  width: 100%;
+  left: 0;
+  right: 0;
   backdrop-filter: blur(var(--card_filter));
   -webkit-backdrop-filter: blur(var(--card_filter));
   background: var(--item_bg_color);
   color: var(--footer_text_color);
   font-size: 13px;
   bottom: 0;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;
 }
 
 .tc {
@@ -621,6 +631,7 @@ footer {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  user-select: none;
 }
 
 .onoffswitch-checkbox {
@@ -715,7 +726,7 @@ footer {
 }
 
 @media (max-width: 800px) {
-  .zyyo-left {
+  .at-left {
     display: none;
   }
 
@@ -738,7 +749,7 @@ footer {
     width: calc(100% - 30px);
   }
 
-  .zyyo-right {
+  .at-right {
     width: 100%;
   }
 
