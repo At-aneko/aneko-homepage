@@ -88,7 +88,7 @@ a:focus {
   --left_tag_item: rgba(19, 20, 24, 0.35);
   --card_filter: 0px;
   --back_filter: 20px;
-  --back_filter_color: rgba(0, 0, 0, 0.3);
+  --back_filter_color: rgba(0, 0, 0, 0.55);
   --fill: #ffffff;
 }
 
