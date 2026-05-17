@@ -106,22 +106,29 @@ body {
 }
 ```
 
-### 组件位置
+### 模块修改位置
 
-| 组件 | 位置 | 说明 |
-|------|------|------|
-| 左侧侧边栏 | `src/components/LeftSidebar.vue` | 个人信息和导航 |
-| 页面头部 | `src/components/PageHeader.vue` | 标题和主题切换 |
-| 页面内容 | `src/components/PageContent.vue` | 主要内容区域 |
-| 页面底部 | `src/components/PageFooter.vue` | 版权信息 |
-| 主题切换 | `src/components/ThemeToggle.vue` | 明暗主题切换按钮 |
-| 弹窗组件 | `src/components/PopupModal.vue` | 通用弹窗 |
-| 加载动画 | `src/components/LoadingScreen.vue` | 页面加载动画 |
+| 模块 | 文件 | 可修改内容 | 位置 |
+|------|------|-----------|------|
+| 左侧侧边栏 | `src/components/LeftSidebar.vue` | 个人描述文字 | 第 35 行 |
+| 左侧侧边栏 | `src/components/LeftSidebar.vue` | 标签列表 | 第 46-51 行 |
+| 左侧侧边栏 | `src/components/LeftSidebar.vue` | 时间线数据 | 第 54-75 行 |
+| 页面头部 | `src/components/PageHeader.vue` | 欢迎语 | 第 30 行 |
+| 页面头部 | `src/components/PageHeader.vue` | 图标链接列表 | 第 33-54 行 |
+| 页面内容 | `src/components/PageContent.vue` | 项目站点数据 | 第 65-70 行 |
+| 页面底部 | `src/components/PageFooter.vue` | 版权信息/底部链接 | 第 21-27 行 |
+| 主题切换 | `src/components/ThemeToggle.vue` | 切换按钮样式 | 第 21-38 行 |
+| 根组件 | `src/App.vue` | 主题切换逻辑 | 第 48-52 行 |
+| 根组件 | `src/App.vue` | 控制台输出/彩蛋 | 第 65-73 行 |
+| 根组件 | `src/App.vue` | 右键菜单禁用 | 第 75-77 行 |
+| 根组件 | `src/App.vue` | FPS 显示 | 第 79-109 行 |
 
 ### 工具函数
 
-- Cookie 操作：`src/utils/cookie.js`
-- 弹窗管理：`src/composables/usePopup.js`
+| 文件 | 说明 |
+|------|------|
+| `src/utils/cookie.js` | Cookie 读写操作 |
+| `src/composables/usePopup.js` | 弹窗事件管理 |
 
 ## 快速开始
 
