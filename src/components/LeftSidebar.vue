@@ -59,7 +59,7 @@ SOFTWARE.
         </li>
         <li>
           <div class="focus"></div>
-          <div>实现全站开源与无服务器化</div>
+          <div>实现全站开源<br/>与无服务器化</div>
           <div>2026.5</div>
         </li>
         <li>
