@@ -11,8 +11,8 @@ www - VUE/
 ├── public/                    # 静态资源目录
 │   └── static/               # 静态文件
 │       ├── fonts/            # 字体文件
-│       ├── img/              # 图片文件
-│       └── svg/              # SVG 图标
+│       ├── img/              # 壁纸、头像、二维码等图片
+│       └── svg/              # SVG 图标（项目图标、技能图、贪吃蛇等）
 ├── src/                      # 源代码目录
 │   ├── components/           # Vue 组件
 │   ├── composables/          # 组合式函数
@@ -20,9 +20,9 @@ www - VUE/
 │   ├── App.vue               # 根组件
 │   ├── main.js               # 入口文件
 │   └── style.css             # 全局样式（主题配置）
-├── index.html                # HTML 模板
+├── index.html                # HTML 模板（含资源预加载）
 ├── package.json              # 项目依赖配置
-├── vite.config.js            # Vite 配置
+├── vite.config.js            # Vite 配置（含构建优化）
 ├── wrangler.toml             # Cloudflare Pages 部署配置
 ├── LICENSE                   # MIT 许可证
 └── README.md                 # 项目说明文档
@@ -36,13 +36,13 @@ www - VUE/
 
 | 设置项 | 变量名 | 位置 |
 |--------|--------|------|
-| 主背景颜色 | `--main_bg_color` | 第 79 行（Light）/ 第 98 行（Dark） |
-| 主文字颜色 | `--main_text_color` | 第 80 行（Light）/ 第 99 行（Dark） |
-| 模块背景颜色 | `--item_bg_color` | 第 84 行（Light）/ 第 103 行（Dark） |
-| 背景滤镜模糊 | `--back_filter` | 第 91 行（Light）/ 第 110 行（Dark） |
-| 背景遮罩颜色 | `--back_filter_color` | 第 92 行（Light）/ 第 111 行（Dark） |
+| 主背景颜色 | `--main_bg_color` | 第 73 行（Light）/ 第 92 行（Dark） |
+| 主文字颜色 | `--main_text_color` | 第 74 行（Light）/ 第 93 行（Dark） |
+| 模块背景颜色 | `--item_bg_color` | 第 78 行（Light）/ 第 97 行（Dark） |
+| 背景滤镜模糊 | `--back_filter` | 第 85 行（Light）/ 第 104 行（Dark） |
+| 背景遮罩颜色 | `--back_filter_color` | 第 86 行（Light）/ 第 105 行（Dark） |
 
-**主题变量代码示例**（`src/style.css` 第 77-113 行）：
+**主题变量代码示例**（`src/style.css` 第 71-107 行）：
 
 ```css
 /* ====== 主题: Light (默认) ====== */
@@ -89,7 +89,7 @@ www - VUE/
 - **Light 主题壁纸**：`public/static/img/bz-light.jpg`
 - **Dark 主题壁纸**：`public/static/img/bz-dark.jpg`
 
-背景图片样式配置（`src/style.css` 第 115-128 行）：
+背景图片样式配置（`src/style.css` 第 109-122 行）：
 
 ```css
 body {
@@ -97,10 +97,10 @@ body {
   min-height: 100vh;
   width: 100%;
   position: relative;
-  font-family: "b", "a", sans-serif;
+  font-family: "b", sans-serif;
   background: var(--main_bg_color);
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: cover;
   background-position: top center;
   background-attachment: fixed;
   transition: color 0.1s ease;
@@ -118,13 +118,10 @@ body {
 | 页面头部 | `src/components/PageHeader.vue` | 欢迎语 | 第 30 行 |
 | 页面头部 | `src/components/PageHeader.vue` | 图标链接列表 | 第 33-54 行 |
 | 页面内容 | `src/components/PageContent.vue` | 项目站点数据 | 第 65-70 行 |
-| 页面底部 | `src/components/PageFooter.vue` | 版权信息/底部链接 | 第 4-8 行 |
+| 页面底部 | `src/components/PageFooter.vue` | 版权信息 | 第 2-4 行 |
 | 页面底部 | `src/components/PageFooter.vue` | 滚动渐显效果 | 第 16-38 行 |
 | 主题切换 | `src/components/ThemeToggle.vue` | 切换按钮样式 | 第 21-38 行 |
 | 根组件 | `src/App.vue` | 主题切换逻辑 | 第 48-52 行 |
-| 根组件 | `src/App.vue` | 控制台输出/彩蛋 | 第 65-73 行 |
-| 根组件 | `src/App.vue` | 右键菜单禁用 | 第 75-77 行 |
-| 根组件 | `src/App.vue` | FPS 显示 | 第 79-109 行 |
 
 ### 工具函数
 
@@ -204,13 +201,21 @@ function toggleTheme() {
 }
 ```
 
+## 性能优化
+
+- **代码精简**：移除冗余的 console.log、FPS 监控、右键禁用等代码
+- **图片延迟加载**：所有 `<img>` 标签添加 `loading="lazy"` 和 `decoding="async"`
+- **资源预加载**：`index.html` 中对字体和背景图使用 `<link rel="preload">`
+- **构建优化**：Vite 配置 esbuild 压缩、Vue 分包、CSS 代码分割、小资源内联
+- **SVG 图标**：项目图标使用 SVG 格式，体积更小且支持无损缩放
+
 ## 文件说明
 
 ### 静态资源
 
-- **字体文件** (`public/static/fonts/`)：存放自定义字体
-- **图片文件** (`public/static/img/`)：存放壁纸、头像、图标等图片
-- **SVG 图标** (`public/static/svg/`)：存放可缩放矢量图标
+- **字体文件** (`public/static/fonts/`)：存放自定义字体（Ubuntu、Pacifico）
+- **图片文件** (`public/static/img/`)：存放壁纸、头像、二维码等图片
+- **SVG 图标** (`public/static/svg/`)：存放项目图标、技能图、贪吃蛇动画等矢量图
 
 ### 源代码
 
@@ -227,6 +232,19 @@ function toggleTheme() {
 ### 修改主题颜色
 
 编辑 `src/style.css` 中的 CSS 变量，找到对应的主题区块进行修改。
+
+### 修改项目站点
+
+编辑 `src/components/PageContent.vue` 中的 `siteProjects` 数组：
+
+```javascript
+const siteProjects = [
+  { name: '博客', url: 'https://blog.atbspb.online', img: '/static/svg/blog.svg' },
+  { name: '云盘', url: 'https://disk.atbspb.online', img: '/static/svg/disk.svg' },
+  { name: '探针', url: 'https://tz.atbspb.online', img: '/static/svg/probe.svg' },
+  { name: '相册', url: 'https://photo.atbspb.online', img: '/static/svg/album.svg' },
+]
+```
 
 ### 添加新组件
 
