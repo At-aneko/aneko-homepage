@@ -51,15 +51,10 @@ function toggleTheme() {
   document.documentElement.dataset.theme = theme.value
 }
 
-function applyTheme(t) {
-  document.documentElement.dataset.theme = t
-  theme.value = t
-}
-
 provide('theme', theme)
 
 onMounted(() => {
-  const savedTheme = getCookie('themeState') || 'Light'
-  applyTheme(savedTheme)
+  theme.value = getCookie('themeState') || 'Light'
+  document.documentElement.dataset.theme = theme.value
 })
 </script>

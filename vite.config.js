@@ -9,7 +9,6 @@ export default defineConfig({
     }
   },
   build: {
-    minify: 'esbuild',
     rollupOptions: {
       output: {
         manualChunks: {
@@ -17,7 +16,5 @@ export default defineConfig({
         },
       },
     },
-    cssCodeSplit: true,
-    assetsInlineLimit: 4096,
   },
 })
