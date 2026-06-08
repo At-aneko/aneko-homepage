@@ -118,8 +118,8 @@ body {
 | 页面头部 | `src/components/PageHeader.vue` | 欢迎语 | 第 30 行 |
 | 页面头部 | `src/components/PageHeader.vue` | 图标链接列表 | 第 33-54 行 |
 | 页面内容 | `src/components/PageContent.vue` | 项目站点数据 | 第 65-70 行 |
-| 页面底部 | `src/components/PageFooter.vue` | 版权信息 | 第 2-4 行 |
-| 页面底部 | `src/components/PageFooter.vue` | 滚动渐显效果 | 第 16-38 行 |
+| 页面底部 | `src/components/PageFooter.vue` | 版权信息（页面底部，滚动至底部时渐显） | 第 2-4 行 |
+| 页面底部 | `src/components/PageFooter.vue` | 滚动渐显逻辑（渐显距离阈值） | 第 13 行 |
 | 主题切换 | `src/components/ThemeToggle.vue` | 切换按钮样式 | 第 21-38 行 |
 | 根组件 | `src/App.vue` | 主题切换逻辑 | 第 48-52 行 |
 
