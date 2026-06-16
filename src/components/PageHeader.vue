@@ -1,6 +1,6 @@
 <!--
 MIT License
-Copyright (c) 2026 ATBSPB
+Copyright (c) 2026 aneko
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
@@ -29,7 +29,7 @@ SOFTWARE.
     </div>
 
     <div class="welcome">
-      Hello I' m <span class="gradientText">atd !</span>
+      Hello I' m <span class="gradientText">aneko !</span>
     </div>
     <div class="description">🙂 <span class="purpleText">Full Stack</span> Developer</div>
     <div class="description">

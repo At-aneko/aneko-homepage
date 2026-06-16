@@ -1,4 +1,4 @@
-# At-Home-Page-VUE
+# aneko-homepage
 
 一个基于 [zyyo主页](https://zyyo.net/44.html)，用 Vue 3 + Vite 重构的个人主页项目。
 

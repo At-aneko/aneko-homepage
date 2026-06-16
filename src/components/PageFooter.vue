@@ -1,6 +1,6 @@
 <template>
   <footer :class="{ visible: isVisible }">
-    Copyright &copy; {{ currentYear }} ATBSPB. All rights reserved.
+    Copyright &copy; {{ currentYear }} aneko. All rights reserved.
   </footer>
 </template>
 
