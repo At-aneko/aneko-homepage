@@ -29,7 +29,7 @@ SOFTWARE.
     </div>
 
     <div class="welcome">
-      Hello I' m <span class="gradientText">aneko !</span>
+      Hello I' m <span class="gradientText">neko !</span>
     </div>
     <div class="description">🙂 <span class="purpleText">Full Stack</span> Developer</div>
     <div class="description">
