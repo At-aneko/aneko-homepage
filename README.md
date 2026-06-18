@@ -125,33 +125,11 @@ body {
 | `src/utils/cookie.js` | Cookie 读写操作 |
 | `src/composables/usePopup.js` | 弹窗事件管理 |
 
-## 快速开始
-
-### 安装依赖
-
-```bash
-npm install
-```
-
-### 开发模式
-
-```bash
-npm run dev
-```
-
-
-### 构建生产版本
+## 部署
 
 ```bash
 npm run build
-```
-
-构建产物输出到 `dist/` 目录。
-
-### 预览生产版本
-
-```bash
-npm run preview
+npx wrangler deploy
 ```
 
 ## 技术栈
