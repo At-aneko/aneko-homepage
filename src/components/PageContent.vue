@@ -63,10 +63,10 @@ SOFTWARE.
 
 <script setup>
 const siteProjects = [
-  { name: '博客', url: 'https://blog.atbspb.online', img: '/static/svg/blog.svg' },
-  { name: '云盘', url: 'https://disk.atbspb.online', img: '/static/svg/disk.svg' },
-  { name: '探针', url: 'https://tz.atbspb.online', img: '/static/svg/probe.svg' },
-  { name: '相册', url: 'https://photo.atbspb.online', img: '/static/svg/album.svg' },
+  { name: '博客', url: 'https://blog.aneko.ink', img: '/static/svg/blog.svg' },
+  { name: '云盘', url: 'https://disk.aneko.ink', img: '/static/svg/disk.svg' },
+  { name: '探针', url: 'https://tz.aneko.ink', img: '/static/svg/probe.svg' },
+  { name: '相册', url: 'https://photo.aneko.ink', img: '/static/svg/album.svg' },
 ]
 
 function handlePress(e) {
