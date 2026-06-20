@@ -288,6 +288,7 @@ body {
 
 .at-right {
   width: calc(100% - 230px);
+  min-height: 100vh;
   display: flex;
   padding: 20px 0;
   position: relative;
@@ -567,6 +568,7 @@ footer {
   padding: 12px;
   text-align: center;
   width: 100%;
+  margin-top: auto;
   backdrop-filter: blur(var(--card_filter));
   -webkit-backdrop-filter: blur(var(--card_filter));
   background: var(--item_bg_color);
