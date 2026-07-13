@@ -1,0 +1,17 @@
+{
+  "name": "aneko-homepage-astro-vue",
+  "private": true,
+  "version": "1.0.0",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/vue": "7.0.1",
+    "astro": "7.0.7",
+    "vue": "3.5.39"
+  }
+}

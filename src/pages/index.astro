@@ -1,0 +1,59 @@
+---
+import HeaderIsland from '../components/HeaderIsland.vue'
+import LeftSidebar from '../components/LeftSidebar.vue'
+import PageContent from '../components/PageContent.vue'
+import PageFooter from '../components/PageFooter.vue'
+import '../style.css'
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <script is:inline>
+      (() => {
+        const themeCookie = document.cookie
+          .split(';')
+          .map((cookie) => cookie.trim())
+          .find((cookie) => cookie.startsWith('themeState='))
+        const savedTheme = themeCookie?.slice('themeState='.length)
+        const theme = savedTheme === 'Light' || savedTheme === 'Dark'
+          ? savedTheme
+          : window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'Dark'
+            : 'Light'
+
+        document.documentElement.dataset.theme = theme
+
+        const wallpaperPreload = document.createElement('link')
+        wallpaperPreload.rel = 'preload'
+        wallpaperPreload.as = 'image'
+        wallpaperPreload.href = `/static/img/bz-${theme.toLowerCase()}.jpg`
+        document.head.append(wallpaperPreload)
+      })()
+    </script>
+    <title>Aneko - 神奈川精神病院</title>
+    <link rel="icon" href="/static/img/favicon.ico" />
+    <meta name="description" content="神奈川精神病院-aneko - 包含博客、网盘、探针、相册等功能" />
+    <meta name="keywords" content="个人主页,博客,网盘,探针,相册" />
+    <meta name="author" content="aneko" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="preload" href="/static/fonts/Ubuntu-Regular.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="/static/fonts/Pacifico-Regular.ttf" as="font" type="font/ttf" crossorigin />
+  </head>
+  <body>
+    <div id="at-loading" aria-hidden="true">
+      <div id="at-loading-center"></div>
+    </div>
+    <div class="at-filter"></div>
+    <main class="at-main">
+      <LeftSidebar />
+      <div class="at-right">
+        <HeaderIsland client:load />
+        <PageContent client:load />
+      </div>
+    </main>
+    <PageFooter client:load />
+  </body>
+</html>
