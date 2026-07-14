@@ -1004,16 +1004,18 @@ footer.visible {
 
 .tc {
   position: fixed;
+  inset: 0;
   display: flex;
   visibility: hidden;
-  width: 100vw;
-  height: 100vh;
+  width: auto;
+  height: auto;
+  min-height: 100vh;
+  min-height: 100dvh;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   background: rgba(20, 20, 20, 0.5);
   z-index: 99999;
   align-items: center;
-  top: 0;
   justify-content: center;
   flex-direction: column;
 }
